@@ -1,0 +1,13 @@
+.form-container__submit-btn {
+    align-self: center;
+    width: calc(100% - 36px*2);
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    border: 0;
+    border-radius: 2px;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    cursor: pointer;
+}

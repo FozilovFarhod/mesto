@@ -1,0 +1,13 @@
+.form-container__username {
+    padding: 0;
+    margin-bottom: 30px;
+    align-self: center;
+    width: calc(100% - 36px*2);
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    height: 24px;
+    box-sizing: border-box;
+}
+.form-container__username:focus {
+    outline: none;
+}

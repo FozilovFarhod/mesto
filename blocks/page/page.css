@@ -1,0 +1,20 @@
+/* * {
+    border: 1px solid red;
+} */
+.page {
+background-color: #000;
+max-width: 880px;
+min-width: 282px;
+margin: 0 auto;
+font-family: 'Inter', Arial, sans-serif;
+}
+@media screen and (max-width: 1023px) {
+    .page {
+        max-width: 599px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .page {
+        max-width: 282px;
+    }
+}

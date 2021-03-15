@@ -1,0 +1,15 @@
+.profile__about {
+    color: #fff;
+    grid-column: 1/3;
+    grid-row: 2;
+    margin: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+}
+@media screen and (max-width: 767px) {
+    .profile__about {
+        text-align: center;
+    }
+}
