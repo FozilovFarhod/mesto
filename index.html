@@ -10,92 +10,86 @@
 
 <body class="page">
     <header class="header">
-        <a href="#" class="logo" target="_blank">
+        <a href="#" class="logo page__link-transparency page__link-transparency_20" target="_blank">
 
         </a>
     </header>
     <main class="content">
-        <section class="pop-up">
-            <div class="pop-up__overlay"></div>
-            <form class="form-container">
-            <h2 class="form-container__title">Редактировать профиль</h2>
-            <input type="text" value="name" class="form-container__username">
-            <input type="text" value="about" class="form-container__user-about">
-            <button class="form-container__submit-btn">Сохранить</button>
-            <div class="form-container__close-btn"></div>            
-            <form>
+        <section class="popup">
+            <form class="popup__container">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input type="text" placeholder="" class="popup__username">
+                <input type="text" placeholder="" class="popup__job">
+                <button class="popup__submit-btn page__link-transparency page__link-transparency_80">Сохранить</button>
+                <div class="popup__close-btn page__link-transparency page__link-transparency_60"></div>
+            </form>
         </section>
         <section class="profile">
-            <img class="profile__avatar" src="./images/profile-photo.jpg">
+            <img class="profile__avatar" src="./images/profile-photo.jpg" alt="Фото пользователя">
             <div class="profile__info">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <div class="profile__edit-profile-btn"></div>
-                <p class="profile__about">Исследователь океана</p>
+                <h1 class="profile__name page__text-overflow">Жак-Ив Кусто</h1>
+                <div class="profile__edit-profile-btn page__link-transparency page__link-transparency_60"></div>
+                <p class="profile__job page__text-overflow">Исследователь океана</p>
 
             </div>
-
-
-            <div class="profile__add-element-btn">
+            <div class="profile__add-element-btn page__link-transparency page__link-transparency_60">
             </div>
 
-        </section>
+        </section>        
         <ul class="elements">
             <li class="element">
                 <img src="./images/karachaevsk.jpg" class="element__image" alt="Фотодревнего замка Карачаевск">
                 <div class="element__image-caption">
-                    <h2 class="element__title">Карачаевск</h2>
-                    <div class="element__like-btn">
+                    <h2 class="element__title page__text-overflow">Карачаевск</h2>
+                    <div class="element__like-btn page__link-transparency page__link-transparency_50">
                     </div>
                 </div>
             </li>
             <li class="element">
-                <img src="./images/mount-elbrus.jpg" class="element__image" alt="">
+                <img src="./images/mount-elbrus.jpg" class="element__image" alt="Фото Гора Эльбрус">
                 <div class="element__image-caption">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <div class="element__like-btn">
+                    <h2 class="element__title page__text-overflow">Гора Эльбрус</h2>
+                    <div class="element__like-btn page__link-transparency page__link-transparency_50"></div>
+                </div>
+            </li>
+            <li class="element">
+                <img src="./images/dombay.jpg" class="element__image" alt="Фото Домбай">
+                <div class="element__image-caption">
+                    <h2 class="element__title page__text-overflow">Домбай</h2>
+                    <div class="element__like-btn page__link-transparency page__link-transparency_50">
                     </div>
                 </div>
             </li>
             <li class="element">
-                <img src="./images/dombay.jpg" class="element__image" alt="">
+                <img src="./images/mount-elbrus.jpg" class="element__image" alt="Фото Гора Эльбрус">
                 <div class="element__image-caption">
-                    <h2 class="element__title">Домбай</h2>
-                    <div class="element__like-btn">
+                    <h2 class="element__title page__text-overflow">Гора Эльбрус</h2>
+                    <div class="element__like-btn page__link-transparency page__link-transparency_50">
                     </div>
                 </div>
             </li>
             <li class="element">
-                <img src="./images/mount-elbrus.jpg" class="element__image" alt="">
+                <img src="./images/dombay.jpg" class="element__image" alt="Фото Домбай">
                 <div class="element__image-caption">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <div class="element__like-btn">
+                    <h2 class="element__title page__text-overflow">Домбай</h2>
+                    <div class="element__like-btn page__link-transparency page__link-transparency_50">
                     </div>
                 </div>
             </li>
             <li class="element">
-                <img src="./images/dombay.jpg" class="element__image" alt="">
+                <img src="./images/karachaevsk.jpg" class="element__image" alt="Фото Карачаево-Черкесия">
                 <div class="element__image-caption">
-                    <h2 class="element__title">Домбай</h2>
-                    <div class="element__like-btn">
-                    </div>
+                    <h2 class="element__title page__text-overflow">Карачаево-Черкесия</h2>
+                    <div class="element__like-btn page__link-transparency page__link-transparency_50"></div>
                 </div>
             </li>
-            <li class="element">
-                <img src="./images/karachaevsk.jpg" class="element__image" alt="">
-                <div class="element__image-caption">
-                    <h2 class="element__title">Карачаево-Черкесия</h2>
-                    <div class="element__like-btn"></div>
-                </div>
-                </div>
-            </li>
-
         </ul>
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy;2020 Mesto Russia
         </p>
     </footer>
-    <script src="../scripts/index.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>
