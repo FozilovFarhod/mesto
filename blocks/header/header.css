@@ -8,7 +8,8 @@
 
 @media screen and (max-width: 767px) {
     .header {
+     max-width: 100%;
      min-height: 56px;
-     margin: 28px 10px 38px;
+     margin: 28px 0 39px;
     } 
 }

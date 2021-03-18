@@ -1,29 +1,38 @@
-let editProfileContainer = document.querySelector('.form-container');
-//
-console.log(editProfileContainer);
-let editProfile = document.querySelector('.profile__edit-profile-btn');
-let popUp = document.querySelector('.pop-up');
-function addClass(elementEdit, newClass) {
-     popUp.classList.add('pop-up_opened');
- }
-editProfile.addEventListener('click', addClass);
+let profileContainer = document.querySelector ('.profile');
+let editProfileBtn = profileContainer.querySelector('.profile__edit-profile-btn');
+let popUp = document.querySelector('.popup');
+let popupContainer = popUp.querySelector('.popup__container');
+let closePopupBtn = popUp.querySelector('.popup__close-btn');
+let nameInput = popupContainer.querySelector('.popup__username');
+let jobInput = popupContainer.querySelector('.popup__job');
+let profileName = profileContainer.querySelector('.profile__name');
+let profileJob = profileContainer.querySelector('.profile__job');;
 
-let closeEditButton = document.querySelector('.form-container__close-btn');
-let overlay = document.querySelector('.pop-up__overlay');
-
-function removeClass(elementEdit, newClass) {
-    popUp.classList.remove('pop-up_opened');
+function openPopup() {
+    nameInput.placeholder = profileName.textContent;
+    jobInput.placeholder = profileJob.textContent;
+    popUp.classList.add('popup_opened');
 }
-closeEditButton.addEventListener('click', removeClass);
-overlay.addEventListener('click', removeClass);
-
-let profileNameNew = document.querySelector('.form-container__username');
-let profileName = document.querySelector('.profile__name');
-function addName() {
-    profileName.textContent = profileNameNew.value;
+function closePopup() {
+    popUp.classList.remove('popup_opened');
 }
-let saveProfileButton = editProfileContainer.querySelector('.form-container__submit-btn');
+function stopImmediatePropagation(event) {
+    event.stopImmediatePropagation();
+}
 
-console.dir(saveProfileButton);
-console.log(profileNameNew);
-saveProfileButton.addEventListener('click', addName);
+editProfileBtn.addEventListener('click', openPopup);
+popUp.addEventListener('click', closePopup);
+closePopupBtn.addEventListener('click', closePopup);
+
+popupContainer.addEventListener('click', stopImmediatePropagation);
+
+function formSubmitHandler (evt) {
+    evt.preventDefault();
+    profileName.textContent = nameInput.value;
+    profileJob.textContent = jobInput.value;
+    nameInput.value = ''
+    jobInput.value = ''
+    closePopup();
+}
+
+popupContainer.addEventListener('submit', formSubmitHandler);
