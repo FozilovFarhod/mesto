@@ -1,8 +1,7 @@
-.popup__username {
-    padding: 0;
-    margin-bottom: 33px;
-    align-self: center;
-    width: calc(100% - 36px*2);
+.popup__input {
+    padding: 0 0 7px 0;
+    margin-bottom: 30px;
+    width: 100%;
     border: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     height: 24px;
@@ -10,12 +9,15 @@
     font-size: 14px;
     line-height: 1.21;
 }
+.popup__input:nth-last-child(-n+2) {
+  margin-bottom: 48px;  
+}
 
-.popup__username:focus {
+.popup__input:focus {
     outline: none;
 }
 @media screen and (max-width: 767px) {
-    .popup__username {
-        width: calc(100% - 22px*2);
+    .popup__input {
+        width: 100%;
     }
     }
