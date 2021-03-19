@@ -1,4 +1,6 @@
 .profile__edit-profile-btn {
+    background-color: transparent;
+    padding: 0;
     width: 24px;
     height: 24px;
     border: 1px solid #FFFFFF;
@@ -8,6 +10,9 @@
     background-position: center;
     align-self: center;
     cursor: pointer;
+}
+.profile__edit-profile-btn:active, .profile__edit-profile-btn:focus {
+    outline: none;
 }
 @media screen and (max-width: 767px) {
     .profile__edit-profile-btn {

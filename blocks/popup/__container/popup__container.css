@@ -6,15 +6,13 @@
     margin: 0 auto;
     background-color: #fff;
     width: 430px;
-    height: 330px;
     z-index: 300;
     position: relative;
 }
 
 @media screen and (max-width: 767px) {
     .popup__container {
-    width: 282px;
-    height: 322px;
-    top: 124px;
+        width: 282px;
+        margin: 120px auto auto;
     }
-  }
+}
