@@ -27,17 +27,10 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/page/__link-transparency/page__link-transparency.css);
-<<<<<<< HEAD
-@import url(../blocks/page/__link-transparency/_black-btn/page__link-transparency_black-btn.css);
-@import url(../blocks/page/__link-transparency/_white-btn/page__link-transparency_white-btn.css);
-@import url(../blocks/page/__link-transparency/_like-btn/page__link-transparency_like-btn.css);
-@import url(../blocks/page/__link-transparency/_logo/page__link-transparency_logo.css);
-=======
 @import url(../blocks/page/__link-transparency/_element/page__link-transparency_element_black-btn.css);
 @import url(../blocks/page/__link-transparency/_element/page__link-transparency_element_like-btn.css);
 @import url(../blocks/page/__link-transparency/_element/page__link-transparency_element_logo.css);
 @import url(../blocks/page/__link-transparency/_element/page__link-transparency_element_white-btn.css);
->>>>>>> hotfix/second-review
 @import url(../blocks/element/__like-btn/_active/element__like-btn_active.css);
 @import url(../blocks/popup/__edit-profile-form/popup__edit-profile-form.css);
 @import url(../blocks/popup/__input/popup__input.css);
