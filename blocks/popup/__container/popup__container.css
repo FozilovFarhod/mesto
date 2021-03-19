@@ -13,9 +13,6 @@
 @media screen and (max-width: 767px) {
     .popup__container {
         width: 282px;
-<<<<<<< HEAD
-=======
         margin: 120px auto auto;
->>>>>>> hotfix/second-review
     }
 }
