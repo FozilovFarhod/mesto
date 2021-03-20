@@ -7,18 +7,19 @@
     height: 24px;
     box-sizing: border-box;
     font-size: 14px;
-    font-weight: 500;
     line-height: 1.21;
 }
+
 .popup__input:nth-last-child(-n+2) {
-  margin-bottom: 48px;  
+    margin-bottom: 48px;
 }
 
 .popup__input:focus {
     outline: none;
 }
+
 @media screen and (max-width: 767px) {
     .popup__input {
         width: 100%;
     }
-    }
+}
