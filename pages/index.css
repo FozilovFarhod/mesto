@@ -32,6 +32,10 @@
 @import url(../blocks/page/__link-transparency/_element/page__link-transparency_element_logo.css);
 @import url(../blocks/page/__link-transparency/_element/page__link-transparency_element_white-btn.css);
 @import url(../blocks/element/__like-btn/_active/element__like-btn_active.css);
-@import url(../blocks/popup/__edit-profile-form/popup__edit-profile-form.css);
+@import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/places/places.css);
+@import url(../blocks/popup/__img-container/popup__img-container.css);
+@import url(../blocks/popup/__img-zoom/popup__img-zoom.css);
+@import url(../blocks/popup/__img-caption/popup__img-caption.css);
+@import url(../blocks/element/__delete-btn/element__delete-btn.css);

@@ -14,10 +14,21 @@
         </a>
     </header>
     <main class="content">
-        <section class="popup">
+        <template id="cardTemplate">
+            <li class="element">
+                <img class="element__image" alt="Фото на тему карточки">
+                <div class="element__image-caption">
+                    <h2 class="element__title page__text-overflow"></h2>
+                    <button type="button" aria-label="likeIcon"
+                        class="element__like-btn page__link-transparency page__link-transparency_element_like-btn"></button>                    
+                </div>
+                <button type="button" aria-label="deleteCard" class="element__delete-btn page__link-transparency page__link-transparency_element_white-btn"></button>
+            </li>
+        </template>
+        <section class="popup popup_type_edit">
             <div class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__edit-profile-form" name="editProfile">
+                <form class="popup__form" name="editProfile">
                     <input type="text" class="popup__input popup__input_text_username" name="inputProfileName">
                     <input type="text" class="popup__input popup__input_text_job" name="inputProfileJob">
                     <button type="submit"
@@ -27,6 +38,31 @@
                     class="popup__close-btn page__link-transparency page__link-transparency_element_white-btn"></button>
             </div>
         </section>
+        <section class="popup popup_type_add-card">
+            <div class="popup__container">
+                <h2 class="popup__title">Новое место</h2>
+                <form class="popup__form" name="addCard">
+                    <input type="text" placeholder="Название" class="popup__input popup__input_text_card-name"
+                        name="inputCardName">
+                    <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_text_img-link"
+                        name="inputCardImageLink">
+                    <button type="submit"
+                        class="popup__submit-btn page__link-transparency page__link-transparency_element_black-btn">Сохранить</button>
+                </form>
+                <button type="button" aria-label="closePopup"
+                    class="popup__close-btn page__link-transparency page__link-transparency_element_white-btn"></button>
+            </div>
+        </section>
+        <section class="popup popup_type_img">
+            
+                <figure class="popup__img-container">
+                    <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" class="popup__img-zoom" alt="">
+                    <figcaption class="popup__img-caption">Название Картинки</figcaption>
+                    <button type="button" aria-label="closePopup"
+                    class="popup__close-btn page__link-transparency page__link-transparency_element_white-btn"></button>
+                </figure>               
+            
+        </section>
         <section class="profile">
             <img class="profile__avatar" src="./images/profile-photo.jpg" alt="Фото пользователя">
             <div class="profile__info">
@@ -35,53 +71,13 @@
                     class="profile__edit-profile-btn page__link-transparency page__link-transparency_element_white-btn"></button>
                 <p class="profile__job page__text-overflow">Исследователь океана</p>
             </div>
-            <button type="button" aria-label="addElement" class="profile__add-element-btn page__link-transparency page__link-transparency_element_white-btn">
+            <button type="button" aria-label="addElement"
+                class="profile__add-element-btn page__link-transparency page__link-transparency_element_white-btn">
             </button>
         </section>
         <section class="places">
             <ul class="elements">
-                <li class="element">
-                    <img src="./images/karachaevsk.jpg" class="element__image" alt="Фотодревнего замка Карачаевск">
-                    <div class="element__image-caption">
-                        <h2 class="element__title page__text-overflow">Карачаевск</h2>
-                        <button type="button" aria-label="likeIcon" class="element__like-btn page__link-transparency page__link-transparency_element_like-btn"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/mount-elbrus.jpg" class="element__image" alt="Фото Гора Эльбрус">
-                    <div class="element__image-caption">
-                        <h2 class="element__title page__text-overflow">Гора Эльбрус</h2>
-                        <button type="button" aria-label="likeIcon" class="element__like-btn page__link-transparency page__link-transparency_element_like-btn"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/dombay.jpg" class="element__image" alt="Фото Домбай">
-                    <div class="element__image-caption">
-                        <h2 class="element__title page__text-overflow">Домбай</h2>
-                        <button type="button" aria-label="likeIcon" class="element__like-btn page__link-transparency page__link-transparency_element_like-btn"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/mount-elbrus.jpg" class="element__image" alt="Фото Гора Эльбрус">
-                    <div class="element__image-caption">
-                        <h2 class="element__title page__text-overflow">Гора Эльбрус</h2>
-                        <button type="button" aria-label="likeIcon" class="element__like-btn page__link-transparency page__link-transparency_element_like-btn"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/dombay.jpg" class="element__image" alt="Фото Домбай">
-                    <div class="element__image-caption">
-                        <h2 class="element__title page__text-overflow">Домбай</h2>
-                        <button type="button" aria-label="likeIcon" class="element__like-btn page__link-transparency page__link-transparency_element_like-btn"></button>
-                    </div>
-                </li>
-                <li class="element">
-                    <img src="./images/karachaevsk.jpg" class="element__image" alt="Фото Карачаево-Черкесия">
-                    <div class="element__image-caption">
-                        <h2 class="element__title page__text-overflow">Карачаево-Черкесия</h2>
-                        <button type="button" aria-label="likeIcon" class="element__like-btn page__link-transparency page__link-transparency_element_like-btn"></button>
-                    </div>
-                </li>
+                
             </ul>
         </section>
     </main>

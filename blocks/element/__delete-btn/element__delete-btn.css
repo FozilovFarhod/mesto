@@ -1,0 +1,18 @@
+.element__delete-btn {
+    background-image: url(../../../images/trash-icon.svg);
+    background-color: transparent;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 18px;
+    height: 20px;
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.element__delete-btn:focus {
+    outline: none;
+}

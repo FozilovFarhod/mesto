@@ -1,4 +1,4 @@
-.popup__edit-profile-form {
+.popup__form {
     width: calc(100% - 36px*2);
     margin: 0 auto;
 }
