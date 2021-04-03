@@ -20,9 +20,10 @@
                 <div class="element__image-caption">
                     <h2 class="element__title page__text-overflow"></h2>
                     <button type="button" aria-label="likeIcon"
-                        class="element__like-btn page__link-transparency page__link-transparency_element_like-btn"></button>                    
+                        class="element__like-btn page__link-transparency page__link-transparency_element_like-btn"></button>
                 </div>
-                <button type="button" aria-label="deleteCard" class="element__delete-btn page__link-transparency page__link-transparency_element_white-btn"></button>
+                <button type="button" aria-label="deleteCard"
+                    class="element__delete-btn page__link-transparency page__link-transparency_element_white-btn"></button>
             </li>
         </template>
         <section class="popup popup_type_edit">
@@ -54,14 +55,15 @@
             </div>
         </section>
         <section class="popup popup_type_img">
-            
-                <figure class="popup__img-container">
-                    <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" class="popup__img-zoom" alt="">
+            <div class="popup__img-container">
+                <figure class="popup__img">
+                    <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
+                        class="popup__img-zoom" alt="">
                     <figcaption class="popup__img-caption">Название Картинки</figcaption>
-                    <button type="button" aria-label="closePopup"
+                </figure>
+                <button type="button" aria-label="closePopup"
                     class="popup__close-btn page__link-transparency page__link-transparency_element_white-btn"></button>
-                </figure>               
-            
+            </div>
         </section>
         <section class="profile">
             <img class="profile__avatar" src="./images/profile-photo.jpg" alt="Фото пользователя">
@@ -77,7 +79,7 @@
         </section>
         <section class="places">
             <ul class="elements">
-                
+
             </ul>
         </section>
     </main>
