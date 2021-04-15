@@ -70,16 +70,17 @@ function handleDeleteElement(evt) {
 
 function closePopupByOverlayClick(evt) {
     if (evt.target.classList.contains('popup_opened')) {
-    const currentPopup = evt.target
-    closePopup(currentPopup);
+        const currentPopup = evt.target
+        closePopup(currentPopup);
     }
 }
+
 function clearInputErrors(formElement) {
     const inputElements = Array.from(formElement.querySelectorAll('.popup__input'));
 
     inputElements.forEach((inputElement) => {
         const inputErrorElement = inputElement.closest('.popup__form').querySelector(`#${inputElement.id}-error`);
-        inputErrorElement.textContent ='';
+        inputErrorElement.textContent = '';
         inputElement.classList.remove('popup__input_type_error');
     });
 }

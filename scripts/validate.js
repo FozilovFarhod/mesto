@@ -48,19 +48,20 @@ const setEventListeners = (formElement, inputSelector, submitButtonSelector, ina
             checkInputValidity(formElement, inputElement, errorClass, inputFieldTypeError);
             toggleSubmitBtnState(inputList, submitButtonElement, inactiveButtonClass);
         });
-    })
-
+    });
     toggleSubmitBtnState(inputList, submitButtonElement, inactiveButtonClass);
 }
 const enableValidation = ({
-    formSelector,
-                              inputSelector, submitButtonSelector, inactiveButtonClass, inputFieldTypeError, errorClass
+                              formSelector,
+                              inputSelector,
+                              submitButtonSelector,
+                              inactiveButtonClass,
+                              inputFieldTypeError,
+                              errorClass
                           }) => {
     const formList = Array.from(document.querySelectorAll(formSelector));
     formList.forEach((formElement) => {
         setEventListeners(formElement, inputSelector, submitButtonSelector, inactiveButtonClass, errorClass, inputFieldTypeError)
-
-
     });
 };
 
