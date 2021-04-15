@@ -1,4 +1,4 @@
-.page__link-transparency {
+.page__link-transparency:not(.popup__submit-btn_inactive) {
     -webkit-transition-property: opacity;
   -o-transition-property: opacity;
   -ms-transition-property: opacity;
