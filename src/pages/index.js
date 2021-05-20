@@ -15,6 +15,7 @@ import {
     elementsListSelector,
     profileFieldsSelectors,
 } from '../utils/constants.js';
+import '../pages/index.css';
 
 
 function handleCardClick(data) {
