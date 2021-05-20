@@ -1,7 +1,4 @@
-import {openPopup} from './index.js';
-import {popupImgContainer, popupImg, popupImgCaption} from './constants.js';
-
-export class Card {
+export default class Card {
     static selectors = {
         template: '#cardTemplate',
         cardImage: '.element__image',
@@ -12,10 +9,12 @@ export class Card {
         likeBtnActive: 'element__like-btn_active',
     }
 
-    constructor(data, cardSelector) {
+    constructor(data, cardSelector, handleCardClick) {
+        this._data = data;
         this._card = cardSelector;
         this._name = data.name;
         this._link = data.link;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate() {
@@ -38,7 +37,7 @@ export class Card {
 
     _setEventListener() {
         this._cardItemImg.addEventListener('click', () => {
-            this._handleOpenZoom();
+            this._handleCardClick(this._data);
         });
         this._cardItemLikeBtn.addEventListener('click', () => {
             this._handleToggleLike();
@@ -49,14 +48,12 @@ export class Card {
 
     }
 
-    _handleOpenZoom() {
-        popupImg.src = this._link;
-        popupImg.alt = `Фото ${this._name}`;
-        popupImgCaption.textContent = this._name;
-
-        openPopup(popupImgContainer);
-
-    }
+    // _handleOpenZoom() {
+    //     popupImg.src = this._link;
+    //     popupImg.alt = `Фото ${this._name}`;
+    //     popupImgCaption.textContent = this._name;
+    //     openPopup(popupImgContainer);
+    // }
 
     _handleDeleteElement(evt) {
         evt.target.closest(Card.selectors.cardElement).remove();
