@@ -9,18 +9,16 @@ import {
     popupData,
     initialCards,
     formList,
-    popupImgContainerSelector,
     openEditProfileButton,
     openAddCardButton,
     elementsListSelector,
     profileFieldsSelectors,
+    nameInput,
+    jobInput,
 } from '../utils/constants.js';
 import '../pages/index.css';
 
-
 function handleCardClick(data) {
-    const popupWithImage = new PopupWithImage(popupData.popupImgContainerSelector);
-    popupWithImage.setEventListeners();
     popupWithImage.open(data);
 }
 
@@ -42,6 +40,12 @@ function editProfileSubmitHandler(evt, inputValues) {
     editProfilePopup.close();
 }
 
+function setEditProfilePopupInputValues() {
+    const profileData = userInfo.getUserInfo();
+    nameInput.value = profileData.name;
+    jobInput.value = profileData.job;
+}
+
 formList.forEach((formElement) => {
     const newFormValidator = new FormValidator(formData, formElement);
     newFormValidator.enableValidation();
@@ -58,13 +62,13 @@ cardList.renderItems();
 const userInfo = new UserInfo(profileFieldsSelectors);
 const editProfilePopup = new PopupWithForm(popupData.editProfilePopupSelector, editProfileSubmitHandler);
 const addCardPopup = new PopupWithForm(popupData.addCardPopupSelector, addCardSubmitHandler);
-//const popupWithImage = new PopupWithImage(popupData.popupImgContainerSelector);
-//popupWithImage.setEventListeners();
+const popupWithImage = new PopupWithImage(popupData.popupImgContainerSelector);
 editProfilePopup.setEventListeners();
+popupWithImage.setEventListeners();
 addCardPopup.setEventListeners();
 
 openEditProfileButton.addEventListener('click', () => {
-    editProfilePopup.setInputValues(userInfo.getUserInfo());
+    setEditProfilePopupInputValues();
     editProfilePopup.open();
 });
 openAddCardButton.addEventListener('click', () => {

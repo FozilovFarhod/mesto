@@ -32,16 +32,6 @@ export default class PopupWithForm extends Popup {
         this._submitButton.classList.add(formData.inactiveButtonClass);
     }
 
-    setInputValues(data) {
-        this._formInputs.forEach(input => {
-            if (input.name === 'inputProfileName') {
-                input.value = data.name;
-            } else if (input.name === 'inputProfileJob') {
-                input.value = data.job;
-            }
-        })
-    }
-
     setEventListeners() {
         super.setEventListeners();
         this._form.addEventListener('submit', (evt) => {

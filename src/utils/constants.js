@@ -17,9 +17,10 @@ export const popupData = {
 export const formList = Array.from(document.querySelectorAll('.popup__form'));
 // Элементы попап редактирования профиля
 export const popupEditProfile = document.querySelector('.popup_type_edit');
+export const nameInput = popupEditProfile.querySelector('.popup__input_text_username');
+export const jobInput = popupEditProfile.querySelector('.popup__input_text_job');
 // Элементы попап увеличения картинки
 export const popupImgContainer = document.querySelector('.popup_type_img');
-export const popupImgContainerSelector = '.popup_type_img';
 export const popupImg = popupImgContainer.querySelector('.popup__img-zoom');
 export const popupImgCaption = popupImgContainer.querySelector('.popup__img-caption');
 // Элементы данных профиля
