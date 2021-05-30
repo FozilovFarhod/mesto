@@ -45,3 +45,6 @@
 @import url(../../src/blocks/popup/__form-input-error/_active/popup__form-input-error_active.css);
 @import url(../../src/blocks/popup/__submit-btn/_inactive/popup__submit-btn_inactive.css);
 @import url(../../src/blocks/popup/__input/_type_error/popup__input_type_error.css);
+@import url(../../src/blocks/like-elements/like-elements.css);
+@import url(../../src/blocks/profile/__avatar-edit-icon/profile__avatar-edit-icon.css);
+@import url(../../src/blocks/profile/__avatar-container/profile__avatar-container.css);

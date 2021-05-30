@@ -1,14 +1,8 @@
 .profile__avatar {
-    width: 122px;
-    height: 122px;
-    border-radius: 50%;
-    margin: 0 26px 0 0;
+  border-radius: inherit;
+  width: 122px;
+  height: 122px;
 }
 
-@media screen and (max-width: 767px) {
-  .profile__avatar {
-    margin: 0 0 25px;
-  }
 
-}
 

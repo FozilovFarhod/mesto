@@ -18,11 +18,16 @@
             <img class="element__image" alt="Фото на тему карточки">
             <div class="element__image-caption">
                 <h2 class="element__title page__text-overflow"></h2>
-                <button type="button" aria-label="likeIcon"
-                        class="element__like-btn page__link-transparency page__link-transparency_element_like-btn"></button>
+                <div class="like-elements">
+                    <button type="button" aria-label="likeIcon"
+                            class="element__like-btn page__link-transparency page__link-transparency_element_like-btn">
+                    </button>
+                    <div class="like-elements__counter" id="">5</div>
+                </div>
             </div>
             <button type="button" aria-label="deleteCard"
-                    class="element__delete-btn page__link-transparency page__link-transparency_element_white-btn"></button>
+                    class="element__delete-btn page__link-transparency page__link-transparency_element_white-btn"
+                    hidden></button>
         </li>
     </template>
     <section class="popup popup_type_edit">
@@ -47,6 +52,51 @@
             <button type="button" aria-label="closePopup"
                     class="popup__close-btn page__link-transparency page__link-transparency_element_white-btn"></button>
         </div>
+    </section>
+    <section class="popup popup_type_update-avatar">
+        <div class="popup__container">
+            <h2 class="popup__title">Обновить аватар</h2>
+            <form class="popup__form" name="updateAvatar" novalidate>
+                <div class="popup__input-item">
+                    <input type="url" class="popup__input popup__input_text_avatar-link" name="inputProfileAvatar"
+                           id="inputProfileAvatar" required>
+                    <span class="popup__form-input-error" id="inputProfileAvatar-error"></span>
+                </div>
+                <button type="submit"
+                        class="popup__submit-btn page__link-transparency page__link-transparency_element_black-btn">
+                    Сохранить
+                </button>
+            </form>
+            <button type="button" aria-label="closePopup"
+                    class="popup__close-btn page__link-transparency page__link-transparency_element_white-btn"></button>
+        </div>
+    </section>
+    <section class="popup popup_type_confirmation">
+        <div class="popup__container">
+            <form class="popup__form" name="updateAvatar" novalidate>
+                <h2 class="popup__title">Вы уверены?</h2>
+                <!--            <form class="popup__form" name="editProfile" novalidate>-->
+                <!--&lt;!&ndash;                <div class="popup__input-item">&ndash;&gt;-->
+                <!--&lt;!&ndash;                    <input type="text" class="popup__input popup__input_text_username" name="inputProfileName"&ndash;&gt;-->
+                <!--&lt;!&ndash;                           id="inputProfileName" minlength="2" maxlength="40" required>&ndash;&gt;-->
+                <!--&lt;!&ndash;                    <span class="popup__form-input-error" id="inputProfileName-error"></span>&ndash;&gt;-->
+                <!--&lt;!&ndash;                </div>&ndash;&gt;-->
+                <!--&lt;!&ndash;                <div class="popup__input-item">&ndash;&gt;-->
+                <!--&lt;!&ndash;                    <input type="text" class="popup__input popup__input_text_job" name="inputProfileJob"&ndash;&gt;-->
+                <!--&lt;!&ndash;                           id="inputProfileJob" minlength="2" maxlength="200" required>&ndash;&gt;-->
+                <!--&lt;!&ndash;                    <span class="popup__form-input-error" id="inputProfileJob-error"></span>&ndash;&gt;-->
+                <!--&lt;!&ndash;                </div>&ndash;&gt;-->
+                <!--                -->
+                <!--            </form>-->
+                <button type="button"
+                        class="popup__submit-btn page__link-transparency page__link-transparency_element_black-btn">
+                    Да
+                </button>
+            </form>
+            <button type="button" aria-label="closePopup"
+                    class="popup__close-btn page__link-transparency page__link-transparency_element_white-btn"></button>
+        </
+        >
     </section>
     <section class="popup popup_type_add-card">
         <div class="popup__container">
@@ -82,13 +132,17 @@
                     class="popup__close-btn page__link-transparency page__link-transparency_element_white-btn"></button>
         </div>
     </section>
+
     <section class="profile">
-        <img class="profile__avatar" src="<%=require('./images/profile-photo.jpg')%>" alt="Фото пользователя">
+        <div class="profile__avatar-container">
+            <img class="profile__avatar" src="" alt="Фото пользователя">
+            <div class="profile__avatar-edit-icon"></div>
+        </div>
         <div class="profile__info">
-            <h1 class="profile__name page__text-overflow">Жак-Ив Кусто</h1>
+            <h1 class="profile__name page__text-overflow"></h1>
             <button type="button" aria-label="editProfile"
                     class="profile__edit-profile-btn page__link-transparency page__link-transparency_element_white-btn"></button>
-            <p class="profile__job page__text-overflow">Исследователь океана</p>
+            <p class="profile__job page__text-overflow"></p>
         </div>
         <button type="button" aria-label="addElement"
                 class="profile__add-element-btn page__link-transparency page__link-transparency_element_white-btn">

@@ -9,8 +9,10 @@ export const formData = {
 export const popupData = {
     editProfilePopupSelector: '.popup_type_edit',
     addCardPopupSelector: '.popup_type_add-card',
+    updateAvatarSelector: '.popup_type_update-avatar',
     openPopupClass: 'popup_opened',
     popupImgContainerSelector: '.popup_type_img',
+    popupDeleteCardSelector: '.popup_type_confirmation',
 }
 
 //Список форм на странице
@@ -29,8 +31,14 @@ export const profileContainer = document.querySelector('.profile');
 export const profileName = profileContainer.querySelector('.profile__name');
 export const profileJob = profileContainer.querySelector('.profile__job');
 export const openAddCardButton = profileContainer.querySelector('.profile__add-element-btn');
+export const updateAvatar = profileContainer.querySelector('.profile__avatar-edit-icon');
 export const profileFieldsSelectors =
-    {name: '.profile__name', job: '.profile__job'};
+    {
+        name: '.profile__name',
+        job: '.profile__job',
+        avatar: '.profile__avatar',
+        profileElementSelector: '.profile',
+    };
 
 // Элементы grid карточек
 export const elementsList = document.querySelector('.elements');

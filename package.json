@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/FozilovFarhod/mesto.git"
   },
+  "devtool": "inline-source-map",
   "author": "Farhod Fozilov",
   "license": "ISC",
   "bugs": {
@@ -36,4 +37,5 @@
   "dependencies": {
     "core-js": "^3.12.1"
   }
+
 }
