@@ -55,7 +55,8 @@ export default class Card {
             this._likesHandler(this, this._data);
         });
         this._cardDeleteBtn.addEventListener('click', (evt) => {
-            this._handleDeleteCardButton(evt, this, this._data);
+            const currentCardElement = evt.target.closest('.element')
+            this._handleDeleteCardButton(currentCardElement, this, this._data);
         });
 
     }

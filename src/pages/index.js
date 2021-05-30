@@ -149,32 +149,30 @@ formList.forEach((formElement) => {
     newFormValidator.enableValidation();
 });
 
-function deleteCardSubmitHandler(evt, card, cardData) {
+function deleteCardSubmitHandler(currentElement, card, cardData) {
     api.deleteCard(cardData._id)
         .then((res) => {
-            const currentElement = evt.target.closest('.element');
             cardList.deleteElement(currentElement);
+            confirmDeletePopup.close()
         })
         .catch((res) => {
             console.log(`Ошибка при удалении карточки ${res}`);
         })
-        .finally(() => {
-            confirmDeletePopup.close();
-        })
 
 }
 
-function handleDeleteCardButton(evt, card, carddata) {
-    confirmDeletePopup.open();
-    confirmDeletePopup.setEventListeners(evt, card, carddata);
+
+function handleDeleteCardButton(currentCardElement, card, cardData) {
+    confirmDeletePopup.open(currentCardElement, card, cardData);
+    confirmDeletePopup.setEventListeners();
 }
 
 
 const userInfo = new UserInfo(profileFieldsSelectors);
 const editProfilePopup = new PopupWithForm(popupData.editProfilePopupSelector, editProfileSubmitHandler);
 const addCardPopup = new PopupWithForm(popupData.addCardPopupSelector, addCardSubmitHandler);
-const updateAvatarPopup = new PopupWithForm(popupData.updateAvatarSelector, updateAvatarHandler);
 const confirmDeletePopup = new PopupWithConfirm(popupData.popupDeleteCardSelector, deleteCardSubmitHandler);
+const updateAvatarPopup = new PopupWithForm(popupData.updateAvatarSelector, updateAvatarHandler);
 const popupWithImage = new PopupWithImage(popupData.popupImgContainerSelector);
 
 updateAvatarPopup.setEventListeners();
