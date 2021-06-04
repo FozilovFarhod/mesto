@@ -87,6 +87,10 @@ export default class Card {
     _showDeleteButton() {
         this._cardDeleteBtn.removeAttribute('hidden');
     }
+
+    removeCard() {
+        this._cardElement.remove();
+    }
 }
 
 

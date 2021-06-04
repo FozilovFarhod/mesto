@@ -18,20 +18,6 @@ export default class PopupWithForm extends Popup {
         return inputValues;
     }
 
-    _clearInputErrors() {
-        this._formInputs.forEach((input) => {
-            const inputErrorElement = this._form.querySelector(`#${input.id}-error`)
-            input.classList.remove('popup__input_type_error');
-            inputErrorElement.textContent = '';
-
-        })
-    }
-
-    _disableSubmitButton() {
-        this._submitButton.setAttribute('disabled', 'true');
-        this._submitButton.classList.add(formData.inactiveButtonClass);
-    }
-
     setEventListeners() {
         super.setEventListeners();
         this._form.addEventListener('submit', (evt) => {
@@ -40,8 +26,6 @@ export default class PopupWithForm extends Popup {
     }
 
     close() {
-        this._clearInputErrors();
-        this._disableSubmitButton();
         this._form.reset();
         super.close();
     }

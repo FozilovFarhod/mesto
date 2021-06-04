@@ -2,6 +2,7 @@ export default class Api {
     constructor({address, token}) {
         this._address = address;
         this._token = token;
+        this._responseHandler = this._responseHandler.bind(this);
     }
 
     getCards() {
@@ -11,11 +12,7 @@ export default class Api {
             }
         })
             .then((res) => {
-                if (res.ok) {
-                    return res.json()
-                } else {
-                    return Promise.reject(res.status)
-                }
+                return this._responseHandler(res);
             });
     }
 
@@ -33,11 +30,7 @@ export default class Api {
 
         })
             .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(res.status);
-                }
+                return this._responseHandler(res);
             })
     }
 
@@ -53,11 +46,7 @@ export default class Api {
             })
         })
             .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(res.status);
-                }
+                return this._responseHandler(res);
             })
     }
 
@@ -69,11 +58,7 @@ export default class Api {
             }
         })
             .then((res) => {
-                if (res.ok) {
-                    return res.json;
-                } else {
-                    return Promise.reject(res.status);
-                }
+                return this._responseHandler(res);
             })
 
     }
@@ -86,11 +71,7 @@ export default class Api {
             },
         })
             .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(res.status);
-                }
+                return this._responseHandler(res);
             })
     }
 
@@ -108,11 +89,7 @@ export default class Api {
             }),
         })
             .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(res.status);
-                }
+                return this._responseHandler(res);
             })
     }
 
@@ -124,11 +101,7 @@ export default class Api {
             },
         })
             .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(res.status);
-                }
+                return this._responseHandler(res);
             })
     }
 
@@ -140,11 +113,14 @@ export default class Api {
             },
         })
             .then((res) => {
-                if (res.ok) {
-                    return res.json();
-                } else {
-                    return Promise.reject(res.status);
-                }
+                return this._responseHandler(res);
             })
+    }
+    _responseHandler(res) {
+        if (res.ok) {
+            return res.json();
+        } else {
+            return Promise.reject(res.status);
+        }
     }
 }

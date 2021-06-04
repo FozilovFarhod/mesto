@@ -8,7 +8,6 @@ import {FormValidator} from '../components/FormValidator.js';
 import {
     formData,
     popupData,
-    formList,
     openEditProfileButton,
     openAddCardButton,
     elementsListSelector,
@@ -16,6 +15,9 @@ import {
     nameInput,
     jobInput,
     updateAvatar,
+    editProfileForm,
+    updateAvatarForm,
+    addCardForm,
 } from '../utils/constants.js';
 import '../pages/index.css';
 import Api from '../components/Api.js';
@@ -26,22 +28,16 @@ const api = new Api({
     groupId: 'cohort-24',
 })
 
-api.getUserData()
-    .then((res) => {
+let userData = null;
+
+Promise.all([api.getUserData(), api.getCards()])
+    .then(([res, initialCards]) => {
         userData = res;
         userInfo.setUserInfo(userData);
+        cardList.renderItems(initialCards)
     })
     .catch((res) => {
-        console.log(`Ошибка получения данных пользователя${res}`);
-    })
-
-
-api.getCards()
-    .then((cards) => {
-        cardList.renderItems(cards)
-    })
-    .catch((res) => {
-        console.log(`Ошибка получения массива карточек ${res}`);
+        console.log(`Ошибка при получении данных пользователя или массива карточек ${res}`);
     })
 
 function addCardSubmitHandler(evt, inputValues) {
@@ -49,21 +45,19 @@ function addCardSubmitHandler(evt, inputValues) {
     addCardPopup.setLoadingSubmitText(true);
     api.postCard(inputValues)
         .then((res) => {
-            const card = new Card(res, '#cardTemplate', handleCardClick, handleLikes, userData._id, handleDeleteCardButton);
-            const cardElement = card.generateCard();
+            const cardElement = createCard(res);
             cardList.addUserCard(cardElement);
+            addCardPopup.close();
 
         })
         .catch((errorMessage) => {
             console.log(`Ошибка при добавлении карточки ${errorMessage}`);
         })
         .finally(() => {
-            addCardPopup.close();
             addCardPopup.setLoadingSubmitText(false);
         })
 }
 
-let userData = null;
 
 function handleLikes(card, cardData) {
     if (card.isLiked()) {
@@ -90,14 +84,16 @@ function handleCardClick(data) {
     popupWithImage.open(data);
 }
 
+function createCard(item) {
+    const card = new Card(item, '#cardTemplate', handleCardClick, handleLikes, userData._id, handleDeleteCardButton);
+    return card.generateCard();
+}
+
 
 const cardList = new Section({
     renderer: (item) => {
-
-        const card = new Card(item, '#cardTemplate', handleCardClick, handleLikes, userData._id, handleDeleteCardButton);
-        const cardElement = card.generateCard()
+        const cardElement = createCard(item);
         cardList.addItem(cardElement);
-
     }
 }, elementsListSelector);
 
@@ -108,12 +104,12 @@ function editProfileSubmitHandler(evt, inputValues) {
     api.postUserData(inputValues)
         .then((res => {
             userInfo.setUserInfo(res);
+            editProfilePopup.close();
         }))
         .catch((res) => {
             console.log(`Ошибка при редактировании профиля ${res}`);
         })
         .finally(() => {
-            editProfilePopup.close();
             editProfilePopup.setLoadingSubmitText(false);
         })
 
@@ -132,27 +128,30 @@ function updateAvatarHandler(evt, data) {
     api.updateAvatar(data.inputProfileAvatar)
         .then((res) => {
             userInfo.setUserAvatar(res);
-
+            updateAvatarPopup.close();
         })
         .catch((res) => {
             console.log(`Ошибка при обновлении фото пользователя ${res}`)
         })
         .finally(() => {
-            updateAvatarPopup.close();
             updateAvatarPopup.setLoadingSubmitText(false);
         })
 
 }
 
-formList.forEach((formElement) => {
-    const newFormValidator = new FormValidator(formData, formElement);
-    newFormValidator.enableValidation();
-});
+const editProfileFormValidator = new FormValidator(formData, editProfileForm);
+editProfileFormValidator.enableValidation();
+
+const updateAvatarFormValidator = new FormValidator(formData, updateAvatarForm);
+updateAvatarFormValidator.enableValidation();
+
+const addCardFormValidator = new FormValidator(formData, addCardForm);
+addCardFormValidator.enableValidation();
 
 function deleteCardSubmitHandler(currentElement, card, cardData) {
     api.deleteCard(cardData._id)
         .then((res) => {
-            cardList.deleteElement(currentElement);
+            card.removeCard();
             confirmDeletePopup.close()
         })
         .catch((res) => {
@@ -164,7 +163,6 @@ function deleteCardSubmitHandler(currentElement, card, cardData) {
 
 function handleDeleteCardButton(currentCardElement, card, cardData) {
     confirmDeletePopup.open(currentCardElement, card, cardData);
-    confirmDeletePopup.setEventListeners();
 }
 
 
@@ -179,16 +177,23 @@ updateAvatarPopup.setEventListeners();
 editProfilePopup.setEventListeners();
 popupWithImage.setEventListeners();
 addCardPopup.setEventListeners();
+confirmDeletePopup.setEventListeners();
 
 openEditProfileButton.addEventListener('click', () => {
+    editProfileFormValidator.clearInputErrors();
+    editProfileFormValidator.disableSubmitButton();
     setEditProfilePopupInputValues();
     editProfilePopup.open();
 });
 openAddCardButton.addEventListener('click', () => {
+    addCardFormValidator.clearInputErrors();
+    addCardFormValidator.disableSubmitButton();
     addCardPopup.open();
 });
 
 updateAvatar.addEventListener('click', () => {
+    updateAvatarFormValidator.clearInputErrors();
+    updateAvatarFormValidator.disableSubmitButton();
     updateAvatarPopup.open();
 });
 

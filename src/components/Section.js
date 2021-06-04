@@ -19,8 +19,4 @@ export default class Section {
         this._container.prepend(element);
     }
 
-    deleteElement(element) {
-        element.remove();
-    }
-
 }
